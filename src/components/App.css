@@ -1,0 +1,18 @@
+/* App Component Styles (Footer and global app-specific styles) */
+
+/* Footer-specific styles */
+.app-footer {
+  position: relative;
+  background-color: #000;
+}
+
+.app-footer-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10rem;
+  background: linear-gradient(to bottom, #000, rgba(0, 0, 0, 0.7), transparent);
+  z-index: 10;
+  pointer-events: none;
+}

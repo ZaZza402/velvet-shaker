@@ -1,0 +1,48 @@
+/* LegendBegins (Reservation) Component Styles */
+
+/* Form input focus states */
+.legend-begins-input:focus {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+  border-color: #a855f7;
+}
+
+.legend-begins-select:focus {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+  border-color: #a855f7;
+}
+
+.legend-begins-textarea:focus {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+  border-color: #a855f7;
+}
+
+/* Glow effect for submit button */
+.legend-begins-button {
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.legend-begins-button:hover {
+  box-shadow: 0 0 40px rgba(147, 51, 234, 0.5);
+  transform: scale(1.05);
+}
+
+/* Animated background elements */
+.legend-pulse {
+  animation: legend-pulse 4s ease-in-out infinite;
+}
+
+@keyframes legend-pulse {
+  0%,
+  100% {
+    opacity: 0.05;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.08;
+    transform: scale(1.1);
+  }
+}

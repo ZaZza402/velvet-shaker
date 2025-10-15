@@ -1,0 +1,29 @@
+/* UndergroundMenu Component Styles */
+
+/* 3D Card transforms - handled by GSAP, not CSS transitions */
+.underground-menu-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Neon glow effect for menu items */
+.menu-neon-glow {
+  animation: menu-neon-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes menu-neon-pulse {
+  0%,
+  100% {
+    filter: brightness(1) drop-shadow(0 0 5px currentColor);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 20px currentColor)
+      drop-shadow(0 0 35px currentColor);
+  }
+}
+
+/* Menu gradient backgrounds */
+.menu-gradient-bg {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}

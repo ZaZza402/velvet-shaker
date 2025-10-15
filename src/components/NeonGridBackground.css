@@ -1,0 +1,43 @@
+.neon-grid-container {
+  position: absolute;
+  inset: 0; /* Cover the entire parent */
+  overflow: hidden;
+  z-index: 0; /* Ensure it's behind the content */
+  background-color: transparent;
+}
+
+/* This is the glow layer */
+.neon-grid-container::before {
+  content: "";
+  position: absolute;
+  inset: -100px; /* Make it larger to avoid hard edges from blur */
+
+  /* The Grid: Two repeating linear gradients */
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 255, 0, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+
+  background-size: 80px 80px; /* Size of the grid cells */
+
+  /* The Neon Effect */
+  opacity: 0.5;
+  filter: blur(1px); /* This creates the soft glow */
+
+  /* The Animation */
+  animation: pan-grid 60s linear infinite;
+}
+
+@keyframes pan-grid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(
+      80px,
+      80px
+    ); /* Move one full grid cell to loop seamlessly */
+  }
+}

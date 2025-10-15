@@ -1,0 +1,44 @@
+/* Global Application Styles */
+/* Only truly global styles that apply across all components */
+
+/* Custom gradients for cinematic effects - used globally */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Smooth scrolling - global behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default margins and ensure full coverage - global reset */
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Enhanced mobile touch targets - global accessibility */
+@media (max-width: 640px) {
+  button {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Optimize spacing for mobile */
+  .mobile-spacing {
+    padding: 1rem;
+  }
+}
+
+/* Global video crisp rendering */
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}

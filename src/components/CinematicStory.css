@@ -1,0 +1,62 @@
+/* CinematicStory Component Styles */
+
+/* Gradient shift animation for text */
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Liquid flow animation for Poesia Liquida */
+@keyframes liquidFlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    background-position: 50% 100%;
+    filter: hue-rotate(90deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg);
+  }
+  75% {
+    background-position: 50% 0%;
+    filter: hue-rotate(270deg);
+  }
+}
+
+/* Transcendent glow animation */
+@keyframes transcendentGlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.05);
+  }
+}
+
+/* Shimmer wave animation */
+@keyframes shimmerWave {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(300%) skewX(-15deg);
+  }
+}
+
+/* Cinematic story video */
+.cinematic-story video {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}

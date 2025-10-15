@@ -1,0 +1,35 @@
+/* CustomCursor Component Styles */
+
+/* Hide default cursor on desktop */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Show default cursor on touch devices */
+@media (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none;
+  }
+}
+
+/* Ensure cursor elements are always visible */
+.custom-cursor-dot,
+.custom-cursor-ring {
+  will-change: transform;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Smooth rendering */
+.custom-cursor-dot,
+.custom-cursor-ring {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+}
