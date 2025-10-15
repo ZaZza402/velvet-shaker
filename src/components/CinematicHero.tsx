@@ -73,71 +73,81 @@ const CinematicHero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent via-gray-900/50 to-gray-900 z-40 pointer-events-none"></div>
 
       {/* LAYER 5: UI ELEMENTS (z-50) */}
-      {/* The highest layer. All text, navigation, and controls go here. */}
-      <nav className="absolute top-0 left-0 right-0 z-50 p-4 sm:p-6 lg:p-8">
-        <div className="flex justify-between items-center max-w-7xl mx-auto">
+
+      {/* DESKTOP NAVIGATION - Renders only on screens >= 768px wide */}
+      <nav className="hidden md:flex absolute top-0 left-0 right-0 z-50 p-8">
+        <div className="flex justify-between items-center max-w-7xl mx-auto w-full">
           <div
-            className={`text-lg sm:text-xl lg:text-2xl font-serif transition-all duration-1000 ${
-              isLoaded
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-4"
-            }`}
+            className="text-2xl font-serif"
             style={{
+              fontFamily: '"Playfair Display", serif',
               color: "#ff1493",
-              textShadow:
-                "0 0 10px #ff1493, 0 0 20px #ff1493, 0 0 30px #ff1493",
+              textShadow: "0 0 10px #ff1493",
             }}
           >
             Il Velvet Shaker
           </div>
-
-          <div
-            className={`hidden sm:flex space-x-4 lg:space-x-8 transition-all duration-1000 delay-300 ${
-              isLoaded
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 -translate-y-4"
-            }`}
-          >
+          <div className="flex space-x-8">
             <a
               href="#story"
-              className="text-white hover:text-green-400 transition-colors text-sm lg:text-lg font-medium"
-              style={{ textShadow: "0 0 5px rgba(255,255,255,0.8)" }}
+              className="text-white hover:text-green-400 transition-colors duration-300"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .querySelector("#story")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Storia
             </a>
             <a
+              href="#gallery"
+              className="text-white hover:text-green-400 transition-colors duration-300"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .querySelector("#gallery")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Gallery
+            </a>
+            <a
               href="#menu"
-              className="text-white hover:text-green-400 transition-colors text-sm lg:text-lg font-medium"
-              style={{ textShadow: "0 0 5px rgba(255,255,255,0.8)" }}
+              className="text-white hover:text-green-400 transition-colors duration-300"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .querySelector("#menu")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Menu
             </a>
             <a
+              href="#location"
+              className="text-white hover:text-green-400 transition-colors duration-300"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .querySelector("#location")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Dove Trovarci
+            </a>
+            <a
               href="#reserve"
-              className="text-white hover:text-green-400 transition-colors text-sm lg:text-lg font-medium"
-              style={{ textShadow: "0 0 5px rgba(255,255,255,0.8)" }}
+              className="text-white hover:text-green-400 transition-colors duration-300"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .querySelector("#reserve")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
               Prenota
             </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="sm:hidden">
-            <button className="text-white p-2">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
           </div>
         </div>
       </nav>

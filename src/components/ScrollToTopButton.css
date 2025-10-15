@@ -1,0 +1,243 @@
+/* src/components/ScrollToTopButton.css */
+
+/* Main Button */
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(224, 185, 115, 0.9),
+    rgba(212, 168, 83, 0.9)
+  );
+  border: 2px solid rgba(224, 185, 115, 0.5);
+  cursor: pointer;
+  z-index: 9998; /* Just below OrbitalMenu but above everything else */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(224, 185, 115, 0.4),
+    0 0 20px rgba(224, 185, 115, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  outline: none;
+}
+
+.scroll-to-top-button:hover {
+  border-color: rgba(224, 185, 115, 1);
+  box-shadow: 0 12px 48px rgba(224, 185, 115, 0.6),
+    0 0 40px rgba(224, 185, 115, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Animated background glow */
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224, 185, 115, 0.4), transparent);
+  pointer-events: none;
+}
+
+/* Icon container */
+.button-content {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Main icon */
+.button-icon {
+  width: 28px;
+  height: 28px;
+  color: #000000;
+  position: absolute;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Secondary icon (for depth effect) */
+.button-icon-secondary {
+  width: 28px;
+  height: 28px;
+  color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+}
+
+/* Orbital rings */
+.button-ring,
+.button-ring-reverse {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(224, 185, 115, 0.3);
+  pointer-events: none;
+}
+
+.button-ring {
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  top: -6px;
+  left: -6px;
+}
+
+.button-ring-reverse {
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+  top: -12px;
+  left: -12px;
+  opacity: 0.5;
+}
+
+/* Tooltip */
+.button-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 10, 10, 0.95);
+  color: #e0b973;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border: 1px solid rgba(224, 185, 115, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: "Playfair Display", serif;
+}
+
+.button-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(10, 10, 10, 0.95);
+}
+
+.scroll-to-top-button:hover .button-tooltip {
+  opacity: 1;
+}
+
+/* Focus state for accessibility */
+.scroll-to-top-button:focus-visible {
+  outline: 2px solid #00ffff;
+  outline-offset: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .scroll-to-top-button {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .button-content {
+    width: 24px;
+    height: 24px;
+  }
+
+  .button-icon,
+  .button-icon-secondary {
+    width: 24px;
+    height: 24px;
+  }
+
+  .button-tooltip {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-top-button {
+    bottom: 1rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+  }
+
+  .button-content {
+    width: 20px;
+    height: 20px;
+  }
+
+  .button-icon,
+  .button-icon-secondary {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Alternate neon color scheme variant (optional) */
+.scroll-to-top-button.neon-variant {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.2),
+    rgba(138, 43, 226, 0.2)
+  );
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 255, 255, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.scroll-to-top-button.neon-variant:hover {
+  border-color: rgba(0, 255, 255, 1);
+  box-shadow: 0 12px 48px rgba(0, 255, 255, 0.6),
+    0 0 40px rgba(138, 43, 226, 0.4), inset 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.scroll-to-top-button.neon-variant .button-icon {
+  color: #00ffff;
+}
+
+.scroll-to-top-button.neon-variant .button-glow {
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.4), transparent);
+}
+
+.scroll-to-top-button.neon-variant .button-ring,
+.scroll-to-top-button.neon-variant .button-ring-reverse {
+  border-color: rgba(0, 255, 255, 0.3);
+}
+
+.scroll-to-top-button.neon-variant .button-tooltip {
+  color: #00ffff;
+  border-color: rgba(0, 255, 255, 0.3);
+}
+
+/* Animation for entrance */
+@keyframes button-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Pulse animation on first appearance */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}

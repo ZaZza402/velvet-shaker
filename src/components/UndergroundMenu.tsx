@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import type { Variants } from "framer-motion";
 import CocktailCard from "./CocktailCard";
 import NeonGridBackground from "./NeonGridBackground";
 import "./UndergroundMenu.css";
@@ -68,6 +70,56 @@ const UndergroundMenu = () => {
       color: "from-yellow-400 to-orange-500",
     },
   ];
+
+  // L'Ora Dorata special cocktails
+  const goldenHourCocktails = [
+    {
+      name: "Aurelia",
+      price: "€12",
+      description: "Gin infuso allo zafferano, miele, limone, polvere d'oro.",
+      pairing: "Accompagnato da stuzzichini gourmet.",
+    },
+    {
+      name: "Vespro",
+      price: "€12",
+      description:
+        "Un Negroni rivisitato con liquore all'arancia sanguigna e bitter al cioccolato.",
+      pairing: "Accompagnato da stuzzichini gourmet.",
+    },
+  ];
+
+  // Framer Motion variants for Golden Hour section
+  const goldenHourRef = useRef<HTMLDivElement>(null);
+  const isGoldenHourInView = useInView(goldenHourRef, {
+    once: true,
+    amount: 0.3,
+  });
+
+  const goldenHourVariants: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const goldenCardVariants: Variants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        delay: i * 0.2,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }),
+  };
 
   return (
     <section
@@ -140,6 +192,73 @@ const UndergroundMenu = () => {
             </div>
           ))}
         </div>
+
+        {/* L'Ora Dorata Section */}
+        <motion.div
+          ref={goldenHourRef}
+          initial="hidden"
+          animate={isGoldenHourInView ? "visible" : "hidden"}
+          variants={goldenHourVariants}
+          className="mt-20 pt-12 border-t border-primary/20"
+        >
+          {/* Golden Hour Header */}
+          <div className="text-center mb-12">
+            <h3 className="text-5xl lg:text-6xl font-serif text-primary mb-4">
+              L'Ora Dorata
+            </h3>
+            <p className="text-lg text-gray-300 mb-2">
+              Dove il crepuscolo incontra l'alchimia.
+            </p>
+            <p className="text-base text-primary/80 font-light tracking-wide">
+              Ogni Mercoledì e Giovedì, dalle 18:00 alle 20:00.
+            </p>
+          </div>
+
+          {/* Golden Hour Cocktails Grid */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {goldenHourCocktails.map((cocktail, index) => (
+              <motion.div
+                key={index}
+                custom={index}
+                variants={goldenCardVariants}
+                initial="hidden"
+                animate={isGoldenHourInView ? "visible" : "hidden"}
+                className="group relative p-8 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm border border-primary/30 rounded-lg transition-all duration-500 hover:border-primary hover:shadow-glow"
+              >
+                {/* Golden accent corner */}
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-primary/20 to-transparent rounded-tr-lg" />
+
+                {/* Card Content */}
+                <div className="relative z-10">
+                  {/* Name and Price */}
+                  <div className="flex justify-between items-start mb-4">
+                    <h4 className="text-3xl font-serif text-primary group-hover:text-primary-light transition-colors duration-300">
+                      {cocktail.name}
+                    </h4>
+                    <span className="text-2xl font-light text-primary/90">
+                      {cocktail.price}
+                    </span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-300 leading-relaxed mb-4 text-base">
+                    {cocktail.description}
+                  </p>
+
+                  {/* Pairing */}
+                  <div className="pt-4 border-t border-primary/20">
+                    <p className="text-sm text-primary/70 italic">
+                      {cocktail.pairing}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg pointer-events-none" />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Transition to next chapter */}
         <div

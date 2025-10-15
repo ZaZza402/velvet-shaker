@@ -1,0 +1,124 @@
+/* src/components/OrbitalMenu.css */
+
+/* Main container - expands from circle to rounded rectangle */
+.orbital-menu-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  overflow: hidden;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 20, 147, 0.3);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.3), 0 0 40px rgba(138, 43, 226, 0.2),
+    inset 0 0 20px rgba(255, 20, 147, 0.08);
+}
+
+/* The button/orb part - responsive to content */
+.orb-button {
+  min-width: 50px;
+  width: auto; /* Auto-size based on content */
+  height: 50px;
+  padding: 0 0.75rem; /* Add horizontal padding for longer text */
+  flex-shrink: 0; /* Prevent it from shrinking */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+
+/* VS Logo styling */
+.orb-logo-text {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 20, 147, 0.8), 0 0 16px rgba(255, 20, 147, 0.6);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Menu list - appears when expanded */
+.orbital-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 1.5rem 1rem 0; /* Padding on right, left is handled by button */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+/* Individual menu items */
+.orbital-menu-list li {
+  width: 100%;
+}
+
+/* Menu links */
+.orbital-menu-list a {
+  text-decoration: none;
+  color: #a9a9a9;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+/* Hover effect for links */
+.orbital-menu-list a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 20, 147, 0.6);
+  background: rgba(255, 20, 147, 0.1);
+}
+
+/* Active/focus states */
+.orbital-menu-list a:active {
+  transform: scale(0.98);
+}
+
+/* Close icon hover effect */
+.orb-button:hover svg {
+  filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.8));
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .orbital-menu-container {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .orb-button {
+    min-width: 45px;
+    height: 45px;
+    padding: 0 0.5rem;
+  }
+
+  .orb-logo-text {
+    font-size: 1.1rem;
+  }
+
+  .orbital-menu-list {
+    padding: 0.75rem 1rem 0.75rem 0;
+    gap: 0.375rem;
+  }
+
+  .orbital-menu-list a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.75rem;
+  }
+}

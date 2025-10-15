@@ -45,10 +45,11 @@
 
   .gallery-track.mobile-swipe {
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity; /* Changed from mandatory to proximity for smoother feel */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none; /* Hide scrollbar Firefox */
     cursor: grab;
+    scroll-behavior: smooth; /* Add smooth scroll behavior */
   }
 
   .gallery-track.mobile-swipe::-webkit-scrollbar {
@@ -116,7 +117,8 @@
 }
 
 @keyframes grain-movement {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0);
   }
   25% {

@@ -47,7 +47,7 @@ const Gallery = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
@@ -72,7 +72,7 @@ const Gallery = () => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.touches[0].pageX - track.offsetLeft;
-      const walk = (x - startX) * 2; // Scroll speed multiplier
+      const walk = (x - startX) * 1.0; // Smooth responsive scrolling
       track.scrollLeft = scrollLeft - walk;
     };
 
@@ -93,7 +93,7 @@ const Gallery = () => {
   }, [isMobile]);
 
   return (
-    <section className="gallery-container">
+    <section id="gallery" className="gallery-container">
       {/* Fade overlays for smooth appearance/disappearance */}
       <div className="gallery-fade gallery-fade-left" />
       <div className="gallery-fade gallery-fade-right" />
