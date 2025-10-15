@@ -34,13 +34,34 @@
   }
 }
 
-/* Mobile: Adjust spacing and height */
+/* Mobile: Swipeable mode */
 @media (max-width: 768px) {
   .gallery-track {
     gap: 20px;
     padding: 0 20px;
     height: 60%;
-    animation-duration: 45s; /* Slightly faster on mobile */
+    animation: none; /* Disable auto-scroll on mobile */
+  }
+
+  .gallery-track.mobile-swipe {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    cursor: grab;
+  }
+
+  .gallery-track.mobile-swipe::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+  }
+
+  .gallery-track.mobile-swipe.dragging {
+    cursor: grabbing;
+    scroll-snap-type: none; /* Disable snap while dragging */
+  }
+
+  .gallery-track.mobile-swipe .gallery-image-container {
+    scroll-snap-align: center;
   }
 }
 
