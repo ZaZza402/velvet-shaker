@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import heroVideo from "../assets/bar-hero.mp4";
 import smokeVideo from "../assets/smoke-diffusion.mp4";
 import "./CinematicHero.css";
@@ -151,6 +152,17 @@ const CinematicHero = () => {
           </div>
         </div>
       </nav>
+
+      {/* Animated Subtitle */}
+      <motion.div
+        className="absolute bottom-40 left-1/2 -translate-x-1/2 z-50 text-white/70 text-lg font-sans tracking-wider text-center"
+        style={{ textShadow: "0 0 12px rgba(255, 20, 147, 0.5)" }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 2.5 }}
+      >
+        Esplora il sito come una storia
+      </motion.div>
 
       {/* Scroll Indicator */}
       <div

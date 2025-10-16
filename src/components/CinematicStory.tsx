@@ -46,6 +46,51 @@ const CinematicStory = () => {
   // Use the useInView hook to detect when video enters viewport
   const isVideoInView = useInView(videoRef, { once: true, amount: 0.3 });
 
+  // Continuous looping animation variants for highlighted text
+  const liquidVariant: Variants = {
+    animate: {
+      backgroundPosition: ["0% 50%", "100% 50%"],
+      transition: {
+        delay: 2.5,
+        duration: 3,
+        repeat: Infinity,
+        repeatType: "reverse" as const,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const pulseVariant: Variants = {
+    animate: {
+      scale: [1, 1.05, 1],
+      textShadow: [
+        "0 0 8px rgba(0,255,0,0.4)",
+        "0 0 16px rgba(0,255,0,0.7)",
+        "0 0 8px rgba(0,255,0,0.4)",
+      ],
+      transition: {
+        delay: 2.5,
+        duration: 2.5,
+        repeat: Infinity,
+        repeatType: "reverse" as const,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const transcendentVariant: Variants = {
+    animate: {
+      opacity: [1, 0.7, 1],
+      transition: {
+        delay: 2.5,
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "mirror" as const,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   // Play the video when it comes into view
   useEffect(() => {
     if (isVideoInView && videoRef.current) {
@@ -122,33 +167,56 @@ const CinematicStory = () => {
               <motion.p variants={paragraphVariant}>
                 Nelle profondità dell'underground cittadino, dove il neon
                 sanguina attraverso mattoni e malta, abbiamo scoperto qualcosa
-                di straordinario. Non solo un bar, ma un santuario dove
-                <span className="text-pink-400 font-medium">
-                  {" "}
-                  l'arte liquida{" "}
-                </span>
+                di straordinario. Non solo un bar, ma un santuario dove{" "}
+                <motion.span
+                  className="text-pink-400 font-medium"
+                  variants={liquidVariant}
+                  animate="animate"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(90deg, #f472b6, #ec4899, #db2777, #ec4899, #f472b6)",
+                    backgroundSize: "200% auto",
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                    display: "inline-block",
+                  }}
+                >
+                  l'arte liquida
+                </motion.span>{" "}
                 trascende l'ordinario.
               </motion.p>
 
               <motion.p variants={paragraphVariant}>
                 Ogni cocktail nasce come una visione—un'armonia di sapori che
                 racconta una storia più antica del tempo stesso. I nostri
-                mixologist non versano semplicemente drink; loro
-                <span className="text-green-400 font-medium">
-                  {" "}
-                  coreografano esperienze{" "}
-                </span>
+                mixologist non versano semplicemente drink; loro{" "}
+                <motion.span
+                  className="text-green-400 font-medium"
+                  variants={pulseVariant}
+                  animate="animate"
+                  style={{
+                    display: "inline-block",
+                  }}
+                >
+                  coreografano esperienze
+                </motion.span>{" "}
                 che risvegliano sensi dormienti.
               </motion.p>
 
               <motion.p variants={paragraphVariant}>
                 Osserva il rituale dispiegarsi. La misura precisa. Il mescolare
                 deliberato. Il momento in cui elementi separati diventano
-                qualcosa di
-                <span className="text-purple-400 font-medium">
-                  {" "}
-                  trascendente{" "}
-                </span>
+                qualcosa di{" "}
+                <motion.span
+                  className="text-purple-400 font-medium"
+                  variants={transcendentVariant}
+                  animate="animate"
+                  style={{
+                    display: "inline-block",
+                  }}
+                >
+                  trascendente
+                </motion.span>
                 . Qui è dove inizia la tua storia.
               </motion.p>
             </div>

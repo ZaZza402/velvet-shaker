@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import CocktailCard from "./CocktailCard";
 import NeonGridBackground from "./NeonGridBackground";
@@ -8,12 +8,29 @@ import "./UndergroundMenu.css";
 const UndergroundMenu = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [showHint, setShowHint] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          // Hide the hint after 5 seconds when section comes into view
+          setTimeout(() => {
+            setShowHint(false);
+          }, 5000);
         }
       },
       { threshold: 0.2 }
@@ -175,22 +192,50 @@ const UndergroundMenu = () => {
         </div>
 
         {/* Cocktail Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {cocktails.map((cocktail, index) => (
-            <div
-              key={index}
-              className={`transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-12"
-              }`}
-              style={{
-                transitionDelay: `${index * 100}ms`,
-              }}
-            >
-              <CocktailCard cocktail={cocktail} />
-            </div>
-          ))}
+        <div className="relative">
+          {/* Interactive Hint Tooltip */}
+          <AnimatePresence>
+            {showHint && (
+              <motion.div
+                className="absolute top-[-4rem] left-4 md:left-8 z-20 p-3 rounded-lg border border-cyan-400/50 bg-black/50 backdrop-blur-sm shadow-lg"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.4 }}
+              >
+                <p
+                  className="text-sm text-cyan-400"
+                  style={{ textShadow: "0 0 8px rgba(0, 255, 255, 0.5)" }}
+                >
+                  {isMobile
+                    ? "Tocca le carte."
+                    : "Muovi il cursore sulle carte."}
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+            onMouseEnter={() => setShowHint(false)}
+            onTouchStart={() => setShowHint(false)}
+          >
+            {cocktails.map((cocktail, index) => (
+              <div
+                key={index}
+                className={`transition-all duration-1000 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                }`}
+                style={{
+                  transitionDelay: `${index * 100}ms`,
+                }}
+              >
+                <CocktailCard cocktail={cocktail} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* L'Ora Dorata Section */}
