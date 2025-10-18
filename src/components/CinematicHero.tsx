@@ -1,24 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import heroVideo from "../assets/bar-hero.mp4";
-import smokeVideo from "../assets/smoke-diffusion.mp4";
+import { useIsMobile } from "../hooks/useIsMobile";
+import heroVideoMobile from "../assets/bar-hero.mp4";
+import heroVideoDesktop from "../assets/bar-hero-desktop.mp4";
 import "./CinematicHero.css";
 
 const CinematicHero = () => {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
-  const smokeVideoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Trigger entrance animation after component mounts
     setTimeout(() => setIsLoaded(true), 500);
 
-    // Auto-play both videos
+    // Auto-play video
     if (heroVideoRef.current) {
       heroVideoRef.current.play().catch(console.error);
-    }
-    if (smokeVideoRef.current) {
-      smokeVideoRef.current.play().catch(console.error);
     }
   }, []);
 
@@ -26,42 +24,33 @@ const CinematicHero = () => {
     <div className="cinematic-hero relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* LAYER 1: HERO VIDEO (z-10) */}
       {/* The absolute base layer - loops continuously. */}
-      <div className="absolute inset-0 z-10">
+      <div
+        className={`absolute inset-0 z-10 ${
+          isMobile ? "mobile-video-wrapper" : ""
+        }`}
+      >
         <video
           ref={heroVideoRef}
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`w-full h-full ${
+            isMobile ? "mobile-video-zoom" : "object-cover"
+          }`}
           autoPlay
           muted
-          loop
+          loop={!isMobile}
           playsInline
         >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
-      </div>
-
-      {/* LAYER 2: SMOKE VIDEO OVERLAY (z-20) */}
-      {/* Plays once. Black background made transparent via mix-blend-screen. */}
-      <div className="absolute inset-0 z-20">
-        <video
-          ref={smokeVideoRef}
-          className="absolute inset-0 w-full h-full object-cover mix-blend-screen opacity-60"
-          autoPlay
-          muted
-          playsInline
-        >
-          <source src={smokeVideo} type="video/mp4" />
+          <source
+            src={isMobile ? heroVideoMobile : heroVideoDesktop}
+            type="video/mp4"
+          />
         </video>
       </div>
 
       {/* LAYER 3: COLOR GRADING & LIGHTING (z-30) */}
       {/* These overlays affect the final look of everything underneath them. */}
       <div className="absolute inset-0 z-30 pointer-events-none">
-        {/* The film grain acts like a filter on top of everything below */}
-        <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply film-grain"></div>
-
         {/* Other color/lighting overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-pink-900/10 via-transparent to-green-900/10 mix-blend-overlay"></div>
-        <div className="absolute inset-0 cinematic-vignette"></div>
         <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-radial from-pink-500/10 to-transparent rounded-full blur-2xl animate-pulse"></div>
         <div
           className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-radial from-green-400/8 to-transparent rounded-full blur-xl animate-pulse"
@@ -154,15 +143,17 @@ const CinematicHero = () => {
       </nav>
 
       {/* Animated Subtitle */}
-      <motion.div
-        className="absolute bottom-40 left-1/2 -translate-x-1/2 z-50 text-white/70 text-lg font-sans tracking-wider text-center"
-        style={{ textShadow: "0 0 12px rgba(255, 20, 147, 0.5)" }}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 2.5 }}
-      >
-        Esplora il sito come una storia
-      </motion.div>
+      {!isMobile && (
+        <motion.div
+          className="absolute bottom-40 left-1/2 -translate-x-1/2 z-50 text-white/70 text-lg font-sans tracking-wider text-center"
+          style={{ textShadow: "0 0 12px rgba(255, 20, 147, 0.5)" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2.5 }}
+        >
+          Esplora il sito come una storia
+        </motion.div>
+      )}
 
       {/* Scroll Indicator */}
       <div

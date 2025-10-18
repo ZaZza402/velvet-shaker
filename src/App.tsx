@@ -1,7 +1,7 @@
 import { useIsMobile } from "./hooks/useIsMobile";
 import CinematicHero from "./components/CinematicHero";
 import CinematicStory from "./components/CinematicStory";
-import Gallery from "./components/Gallery";
+import CircularGallery from "./components/CircularGallery";
 import UndergroundMenu from "./components/UndergroundMenu";
 import RendezvousPoint from "./components/RendezvousPoint";
 import LegendBegins from "./components/LegendBegins";
@@ -24,7 +24,22 @@ function App() {
 
       <CinematicHero />
       <CinematicStory />
-      <Gallery />
+
+      {/* CircularGallery Section */}
+      <section
+        id="gallery"
+        className="relative bg-black"
+        style={{ height: "100vh" }}
+      >
+        <CircularGallery
+          bend={3}
+          textColor="#ff1493"
+          borderRadius={0.05}
+          scrollEase={0.02}
+          font="bold 30px Playfair Display"
+        />
+      </section>
+
       <UndergroundMenu />
       <RendezvousPoint />
       <LegendBegins />
