@@ -21,7 +21,7 @@
   padding: 0 40px;
   height: 50%;
   will-change: transform;
-  animation: marquee 60s linear infinite;
+  animation: marquee 75s linear infinite;
 }
 
 /* Seamless loop animation */

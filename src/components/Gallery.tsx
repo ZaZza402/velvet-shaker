@@ -13,7 +13,7 @@ import img7 from "../assets/images/spritz.jpg";
 
 const images = [img1, img2, img3, img4, img5, img6, img7];
 
-// Image component with frame number and film grain
+// Image component with film grain
 const GalleryImage = ({ src, index }: { src: string; index: number }) => {
   return (
     <div className="gallery-image-container">
@@ -28,11 +28,6 @@ const GalleryImage = ({ src, index }: { src: string; index: number }) => {
           filter: "sepia(0.2) contrast(1.1)",
         }}
       />
-
-      {/* Frame number HUD element */}
-      <div className="gallery-frame-number">
-        <span>{String(index + 1).padStart(2, "0")}</span>
-      </div>
     </div>
   );
 };
@@ -72,7 +67,7 @@ const Gallery = () => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.touches[0].pageX - track.offsetLeft;
-      const walk = (x - startX) * 1.0; // Smooth responsive scrolling
+      const walk = (x - startX) * 0.85; // Slightly slower for smoother experience
       track.scrollLeft = scrollLeft - walk;
     };
 

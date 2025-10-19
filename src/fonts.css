@@ -1,0 +1,16 @@
+/* src/fonts.css */
+@font-face {
+  font-family: "Georgia";
+  src: url("/src/assets/fonts/georgia.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Improves perceived load time */
+}
+
+@font-face {
+  font-family: "Amsterdam Handwriting";
+  src: url("/src/assets/fonts/amsterdam-handwriting.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

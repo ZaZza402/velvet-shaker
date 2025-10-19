@@ -100,12 +100,9 @@ const CinematicStory = () => {
 
   return (
     <section
-      className="cinematic-story relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black flex items-center overflow-hidden"
+      className="cinematic-story relative min-h-screen bg-black flex items-center overflow-hidden"
       id="story"
     >
-      {/* Top Fade Transition from Previous Section */}
-      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-gray-900 via-gray-900/70 to-transparent z-10 pointer-events-none"></div>
-
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <video
@@ -120,7 +117,7 @@ const CinematicStory = () => {
 
         {/* Professional color grading overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/70"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-black/60"></div>
       </div>
 
       {/* Content Grid */}

@@ -527,13 +527,13 @@ class App {
     font: string
   ) {
     const defaultItems = [
-      { image: img1, text: "Martini Prep" },
-      { image: img2, text: "Spritz Jigger" },
-      { image: img3, text: "Rosemary Garnish" },
-      { image: img4, text: "Bar Interior" },
-      { image: img5, text: "Liquor Bottles" },
-      { image: img6, text: "Rack Blue Light" },
-      { image: img7, text: "Colorful Cocktail" },
+      { image: img1, text: "" },
+      { image: img2, text: "" },
+      { image: img3, text: "" },
+      { image: img4, text: "" },
+      { image: img5, text: "" },
+      { image: img6, text: "" },
+      { image: img7, text: "" },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
@@ -566,7 +566,7 @@ class App {
   onTouchMove(e: MouseEvent | TouchEvent) {
     if (!this.isDown) return;
     const x = "touches" in e ? e.touches[0].clientX : e.clientX;
-    const distance = (this.start - x) * (this.scrollSpeed * 0.025);
+    const distance = (this.start - x) * (this.scrollSpeed * 0.018);
     this.scroll.target = (this.scroll.position ?? 0) + distance;
   }
 
