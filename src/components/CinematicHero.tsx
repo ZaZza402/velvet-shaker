@@ -30,15 +30,19 @@ const CinematicHero = () => {
 
     const video = videoRef.current;
 
-    const handleVideoEnd = () => {
-      setVideoEnded(true);
-      // Wait for blur animation, then show content
-      setTimeout(() => setShowContent(true), 800);
+    // Trigger blur 1 second before video ends
+    const handleTimeUpdate = () => {
+      const timeRemaining = video.duration - video.currentTime;
+      if (timeRemaining <= 1 && !videoEnded) {
+        setVideoEnded(true);
+        // Text appears 0.3s after blur starts
+        setTimeout(() => setShowContent(true), 300);
+      }
     };
 
-    video.addEventListener("ended", handleVideoEnd);
-    return () => video.removeEventListener("ended", handleVideoEnd);
-  }, [isMobile]);
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    return () => video.removeEventListener("timeupdate", handleTimeUpdate);
+  }, [isMobile, videoEnded]);
 
   // Container animation for staggered children
   const contentContainerVariants = {
