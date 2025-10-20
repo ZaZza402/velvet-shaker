@@ -35,7 +35,16 @@ const Footer = () => {
         {/* Main Footer Header */}
         <div className="footer-header">
           <h3 className="footer-title">L'Underground</h3>
-          <p className="footer-tagline">
+          <p
+            className="footer-tagline font-handwriting"
+            style={{
+              lineHeight: "2",
+              letterSpacing: "0.02em",
+              fontSize: "1.25rem",
+              paddingTop: "0.5rem",
+              paddingBottom: "0.5rem",
+            }}
+          >
             "Dove ogni cocktail racconta una storia, e ogni storia diventa una
             leggenda."
           </p>
@@ -79,7 +88,7 @@ const Footer = () => {
             <div className="footer-social-links">
               {/* Instagram */}
               <motion.a
-                href="https://instagram.com"
+                href="https://www.facebook.com/ax.m826"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-icon"
@@ -98,7 +107,7 @@ const Footer = () => {
 
               {/* Facebook */}
               <motion.a
-                href="https://facebook.com"
+                href="https://www.facebook.com/ax.m826"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-icon"
@@ -117,7 +126,7 @@ const Footer = () => {
 
               {/* X (Twitter) */}
               <motion.a
-                href="https://twitter.com"
+                href="https://www.facebook.com/ax.m826"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-icon"
@@ -136,7 +145,7 @@ const Footer = () => {
 
               {/* TikTok */}
               <motion.a
-                href="https://tiktok.com"
+                href="https://www.facebook.com/ax.m826"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-icon"
@@ -158,7 +167,7 @@ const Footer = () => {
           {/* Newsletter Section */}
           <div className="footer-newsletter-container">
             <h5 className="footer-newsletter-heading">Join the Inner Circle</h5>
-            <p className="footer-newsletter-subtext">
+            <p className="footer-newsletter-subtext font-georgia">
               Ricevi inviti esclusivi e aggiornamenti segreti
             </p>
 
@@ -239,6 +248,24 @@ const Footer = () => {
             <a href="#terms" className="footer-legal-link">
               Termini di Servizio
             </a>
+          </div>
+
+          {/* Designer Credit */}
+          <div className="mt-6 pt-6 border-t border-gray-800">
+            <p className="text-center text-lg font-bold text-gray-300">
+              Designed by{" "}
+              <a
+                href="https://www.facebook.com/ax.m826"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-300 hover:to-purple-300 transition-all duration-300 font-extrabold"
+              >
+                Alex
+              </a>
+            </p>
+            <p className="text-center text-sm text-gray-500 mt-2 font-georgia italic">
+              Questo è un sito dimostrativo - Contattami per il tuo progetto!
+            </p>
           </div>
         </div>
       </div>

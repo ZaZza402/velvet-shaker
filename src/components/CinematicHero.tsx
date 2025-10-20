@@ -60,9 +60,9 @@ const CinematicHero = () => {
 
   // Smooth title animation with elegant fade and rise
   const titleVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 40, 
+    hidden: {
+      opacity: 0,
+      y: 40,
       scale: 0.92,
       filter: "blur(10px)",
     },
@@ -83,8 +83,8 @@ const CinematicHero = () => {
 
   // Smooth subtitle animation - softer and slower
   const subtitleVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 25,
       filter: "blur(8px)",
     },
@@ -116,7 +116,7 @@ const CinematicHero = () => {
           />
           {/* Cinematic Vignette Overlay - Always visible */}
           <div className="mobile-vignette absolute inset-0 pointer-events-none" />
-          
+
           {/* Blur Overlay - Appears after video ends */}
           {videoEnded && (
             <motion.div
@@ -146,7 +146,7 @@ const CinematicHero = () => {
       <div className="relative z-40 w-full h-full px-4 sm:px-6 flex items-center justify-center">
         {/* Title and Subtitle - Show only when showContent is true */}
         {showContent && (
-          <motion.div 
+          <motion.div
             className="flex flex-col items-center justify-center text-center space-y-8"
             variants={contentContainerVariants}
             initial="hidden"
@@ -166,9 +166,10 @@ const CinematicHero = () => {
             {/* Subtitle with Depth Effect */}
             <motion.p
               className="font-georgia text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-200 tracking-wide max-w-3xl italic relative"
-              style={{ 
-                textShadow: "0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 0, 0, 0.4)",
-                filter: "drop-shadow(0 1px 2px rgba(255, 255, 255, 0.1))"
+              style={{
+                textShadow:
+                  "0 2px 4px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 0, 0, 0.4)",
+                filter: "drop-shadow(0 1px 2px rgba(255, 255, 255, 0.1))",
               }}
               variants={subtitleVariants}
             >

@@ -135,7 +135,11 @@ const CinematicStory = () => {
             <div className="space-y-4">
               <motion.div
                 variants={itemVariant}
-                className="text-sm tracking-widest uppercase text-pink-400 font-light"
+                className="tracking-widest uppercase text-pink-400 font-light font-handwriting text-base"
+                style={{
+                  lineHeight: "2",
+                  letterSpacing: "0.1em",
+                }}
               >
                 Capitolo Uno
               </motion.div>
@@ -160,7 +164,7 @@ const CinematicStory = () => {
             </div>
 
             {/* Story Paragraphs */}
-            <div className="space-y-6 text-gray-300 text-lg lg:text-xl leading-relaxed">
+            <div className="space-y-6 text-gray-300 text-lg lg:text-xl leading-relaxed font-georgia">
               <motion.p variants={paragraphVariant}>
                 Nelle profondità dell'underground cittadino, dove il neon
                 sanguina attraverso mattoni e malta, abbiamo scoperto qualcosa
@@ -267,7 +271,7 @@ const CinematicStory = () => {
                   <h3 className="text-2xl lg:text-3xl font-serif text-white">
                     Ogni Goccia Conta
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed font-georgia">
                     La precisione incontra la passione in ogni versata. Dietro
                     il vetro, assistere alla meditazione della mixology.
                   </p>

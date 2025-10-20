@@ -58,13 +58,19 @@ const RendezvousPoint = () => {
       >
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <div className="text-sm tracking-widest uppercase text-primary font-light mb-4">
+          <div
+            className="tracking-widest uppercase text-primary font-light mb-4 font-handwriting text-base"
+            style={{
+              lineHeight: "2",
+              letterSpacing: "0.1em",
+            }}
+          >
             Il Punto d'Incontro
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-white mb-4">
             Dove Trovarci
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto font-georgia">
             Nel cuore pulsante di Roma, dove l'ombra incontra la luce
           </p>
         </motion.div>
@@ -81,7 +87,7 @@ const RendezvousPoint = () => {
                 Indirizzo & Orari
               </h4>
               <div className="space-y-3">
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed font-georgia">
                   Via Panisperna, 101
                   <br />
                   00184 Roma RM
@@ -89,15 +95,15 @@ const RendezvousPoint = () => {
                   Quartiere Monti
                 </p>
                 <div className="pt-4 border-t border-gray-700">
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-400 text-sm font-georgia">
                     <span className="text-primary font-medium">Lun - Gio:</span>{" "}
                     18:00 - 02:00
                   </p>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-400 text-sm font-georgia">
                     <span className="text-primary font-medium">Ven - Sab:</span>{" "}
                     18:00 - 04:00
                   </p>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-400 text-sm font-georgia">
                     <span className="text-primary font-medium">Domenica:</span>{" "}
                     Chiuso
                   </p>
@@ -164,7 +170,7 @@ const RendezvousPoint = () => {
                   <p className="text-gray-500 text-sm mb-2">Social</p>
                   <div className="flex gap-4 justify-center md:justify-end">
                     <a
-                      href="https://instagram.com"
+                      href="https://www.facebook.com/ax.m826"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-pink-400 transition-colors duration-300"
@@ -179,7 +185,7 @@ const RendezvousPoint = () => {
                       </svg>
                     </a>
                     <a
-                      href="https://facebook.com"
+                      href="https://www.facebook.com/ax.m826"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-green-400 transition-colors duration-300"

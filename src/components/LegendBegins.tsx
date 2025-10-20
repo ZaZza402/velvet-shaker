@@ -45,10 +45,8 @@ const LegendBegins = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert(
-      "La tua leggenda inizia! Ti contatteremo entro 24 ore per confermare la tua prenotazione."
-    );
-    console.log("Form data:", formData);
+    // Redirect to Facebook page
+    window.open("https://www.facebook.com/ax.m826", "_blank");
   };
 
   return (
@@ -78,7 +76,13 @@ const LegendBegins = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
-          <div className="text-sm tracking-widest uppercase text-purple-400 font-light mb-4">
+          <div
+            className="tracking-widest uppercase text-purple-400 font-light mb-4 font-handwriting text-base"
+            style={{
+              lineHeight: "2",
+              letterSpacing: "0.1em",
+            }}
+          >
             Capitolo Tre
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-7xl font-serif leading-tight mb-6">
@@ -93,7 +97,7 @@ const LegendBegins = () => {
               Inizia
             </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-georgia">
             Entra nell'underground. Prenota il tuo posto al bar dove nascono le
             storie.
           </p>

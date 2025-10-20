@@ -171,7 +171,13 @@ const UndergroundMenu = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >
-          <div className="text-sm tracking-widest uppercase text-green-400 font-light mb-4">
+          <div
+            className="tracking-widest uppercase text-green-400 font-light mb-4 font-handwriting text-base"
+            style={{
+              lineHeight: "2",
+              letterSpacing: "0.1em",
+            }}
+          >
             Capitolo Due
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-7xl font-serif leading-tight mb-6">
@@ -248,13 +254,21 @@ const UndergroundMenu = () => {
         >
           {/* Golden Hour Header */}
           <div className="text-center mb-12">
-            <h3 className="text-5xl lg:text-6xl font-serif text-primary mb-4">
+            <h3
+              className="text-5xl lg:text-6xl font-handwriting text-primary mb-4"
+              style={{
+                lineHeight: "1.8",
+                letterSpacing: "0.05em",
+                paddingTop: "0.5rem",
+                paddingBottom: "0.5rem",
+              }}
+            >
               L'Ora Dorata
             </h3>
-            <p className="text-lg text-gray-300 mb-2">
+            <p className="text-lg text-gray-300 mb-2 font-georgia">
               Dove il crepuscolo incontra l'alchimia.
             </p>
-            <p className="text-base text-primary/80 font-light tracking-wide">
+            <p className="text-base text-primary/80 font-light tracking-wide font-georgia">
               Ogni Mercoledì e Giovedì, dalle 18:00 alle 20:00.
             </p>
           </div>
@@ -286,13 +300,13 @@ const UndergroundMenu = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-300 leading-relaxed mb-4 text-base">
+                  <p className="text-gray-300 leading-relaxed mb-4 text-base font-georgia">
                     {cocktail.description}
                   </p>
 
                   {/* Pairing */}
                   <div className="pt-4 border-t border-primary/20">
-                    <p className="text-sm text-primary/70 italic">
+                    <p className="text-sm text-primary/70 italic font-georgia">
                       {cocktail.pairing}
                     </p>
                   </div>

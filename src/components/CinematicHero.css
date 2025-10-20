@@ -15,11 +15,9 @@
 /* Mobile Video Cinematic Filters */
 .mobile-hero-video {
   /* Cinematic color grading inspired by the image */
-  filter: 
-    contrast(1.15)           /* Enhance depth */
-    saturate(1.25)           /* Boost color richness */
-    brightness(0.95)         /* Slightly darker, moodier */
-    sepia(0.08);             /* Warm undertone */
+  filter: contrast(1.15) /* Enhance depth */ saturate(1.25)
+    /* Boost color richness */ brightness(0.95) /* Slightly darker, moodier */
+    sepia(0.08); /* Warm undertone */
 }
 
 /* Subtle Vignette - Focus on center cocktails */

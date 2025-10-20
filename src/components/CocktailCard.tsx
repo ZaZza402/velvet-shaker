@@ -106,13 +106,15 @@ const CocktailCard = ({ cocktail }: CocktailProps) => {
         </div>
 
         {/* Ingredients */}
-        <p className="text-gray-300 mb-6 leading-relaxed">
+        <p className="text-gray-300 mb-6 leading-relaxed font-georgia">
           {cocktail.ingredients}
         </p>
 
         {/* Story */}
         <div className="border-t border-gray-700/50 pt-6">
-          <p className="text-gray-400 text-sm italic">{cocktail.story}</p>
+          <p className="text-gray-400 text-sm italic font-georgia">
+            {cocktail.story}
+          </p>
         </div>
 
         {/* Interactive element */}

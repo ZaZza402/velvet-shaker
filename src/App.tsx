@@ -8,6 +8,7 @@ import LegendBegins from "./components/LegendBegins";
 import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
 import OrbitalMenu from "./components/OrbitalMenu";
+import ClientContactPopup from "./components/ClientContactPopup";
 import "./App.css";
 import "./components/App.css";
 
@@ -44,6 +45,9 @@ function App() {
       <RendezvousPoint />
       <LegendBegins />
       <Footer />
+
+      {/* Client Contact Popup */}
+      <ClientContactPopup />
     </div>
   );
 }

@@ -29,6 +29,8 @@ export default {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         serif: ["Playfair Display", "serif"],
+        georgia: ["Georgia", "serif"],
+        handwriting: ["Amsterdam Handwriting", "cursive"],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",

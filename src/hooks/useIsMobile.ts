@@ -4,7 +4,7 @@ import { useState, useLayoutEffect } from "react";
 export const useIsMobile = () => {
   // Initialize with actual window width if available (SSR safe)
   const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       return window.innerWidth < 768;
     }
     return false;

@@ -1,0 +1,28 @@
+<!-- This is a placeholder. You'll need to create an actual og-image.jpg -->
+<!-- I recommend using a screenshot of your hero section or creating a custom image -->
+<!-- Size should be 1200x630 pixels -->
+<!-- For now, create one by:
+1. Taking a screenshot of the hero section
+2. Resizing to 1200x630px
+3. Adding text: "Velvet Shaker - Underground Cocktail Bar"
+4. Save as og-image.jpg in the public folder
+-->
+
+OG Image Specifications:
+- Size: 1200 x 630 pixels
+- Format: JPG or PNG
+- Max file size: < 5MB (ideally < 1MB)
+- Content: Hero image + "Velvet Shaker" text + "By Alex" credit
+
+Quick Creation Steps:
+1. Open your website in browser
+2. Zoom to fit hero section nicely
+3. Take screenshot (Win+Shift+S or Cmd+Shift+4)
+4. Open in image editor (Photoshop, Canva, Figma, etc.)
+5. Resize canvas to 1200x630px
+6. Add overlay text:
+   - "VELVET SHAKER"
+   - "Underground Cocktail Bar Experience"
+   - "Design by Alex"
+7. Export as og-image.jpg
+8. Place in /public/ folder
