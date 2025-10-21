@@ -93,13 +93,15 @@ const UndergroundMenu = () => {
     {
       name: "Aurelia",
       price: "€12",
-      description: "Gin infuso allo zafferano, miele dorato, limone fresco, polvere d'oro.",
+      description:
+        "Gin infuso allo zafferano, miele dorato, limone fresco, polvere d'oro.",
       pairing: "Accompagnato da stuzzichini gourmet selezionati.",
     },
     {
       name: "Vespro",
       price: "€12",
-      description: "Negroni rivisitato con liquore all'arancia sanguigna e bitter al cioccolato.",
+      description:
+        "Negroni rivisitato con liquore all'arancia sanguigna e bitter al cioccolato.",
       pairing: "Accompagnato da stuzzichini gourmet selezionati.",
     },
   ];

@@ -17,6 +17,7 @@
    ============================================ */
 
 .neon-title {
+  /* Crystal clear gradient text - no blur */
   background: linear-gradient(
     90deg,
     #ff1493 0%,
@@ -30,11 +31,18 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: neon-title-shift 4s linear infinite;
-  
-  /* Neon glow effect */
-  filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.8))
-          drop-shadow(0 0 40px rgba(0, 255, 255, 0.6))
-          drop-shadow(0 0 60px rgba(0, 255, 0, 0.4));
+
+  /* Ensure crisp rendering */
+  position: relative;
+  line-height: 1.9; /* Increased to prevent clipping */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  /* Prevent any overflow clipping - add padding for tall letters */
+  overflow: visible;
+  display: inline-block;
+  padding: 0.5rem 0; /* Add vertical padding to prevent clipping */
 }
 
 @keyframes neon-title-shift {

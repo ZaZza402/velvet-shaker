@@ -64,19 +64,16 @@ const CinematicHero = () => {
       opacity: 0,
       y: 40,
       scale: 0.92,
-      filter: "blur(10px)",
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      filter: "blur(0px)",
       transition: {
         duration: 1.8,
         ease: [0.25, 0.1, 0.25, 1] as const, // Smooth, elegant cubic-bezier
         opacity: { duration: 1.6, ease: "easeOut" as const },
         scale: { duration: 1.8, ease: [0.34, 1.56, 0.64, 1] as const }, // Slight overshoot for elegance
-        filter: { duration: 1.2, ease: "easeOut" as const },
       },
     },
   };
@@ -148,19 +145,19 @@ const CinematicHero = () => {
         {showContent && (
           <motion.div
             className="flex flex-col items-center justify-center text-center space-y-8"
+            style={{ overflow: "visible" }}
             variants={contentContainerVariants}
             initial="hidden"
             animate="visible"
           >
             {/* Title with Animated Neon RGB Effect */}
             <motion.h1
-              className="neon-title relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-wider"
-              style={{
-                fontFamily: '"Playfair Display", serif',
-              }}
+              className="neon-title relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider font-handwriting"
+              data-text="il Velvet Shaker"
+              style={{ overflow: "visible" }}
               variants={titleVariants}
             >
-              Il Velvet Shaker
+              il Velvet Shaker
             </motion.h1>
 
             {/* Subtitle with Depth Effect */}
@@ -191,14 +188,13 @@ const CinematicHero = () => {
       <nav className="hidden md:flex absolute top-0 left-0 right-0 z-50 p-8">
         <div className="flex justify-between items-center max-w-7xl mx-auto w-full">
           <div
-            className="text-2xl font-serif"
+            className="text-2xl font-handwriting"
             style={{
-              fontFamily: '"Playfair Display", serif',
               color: "#ff1493",
               textShadow: "0 0 10px #ff1493",
             }}
           >
-            Il Velvet Shaker
+            il Velvet Shaker
           </div>
           <div className="flex space-x-8">
             <a
@@ -292,68 +288,6 @@ const CinematicHero = () => {
           </div>
         </div>
       </div>
-
-      {/* CSS Styles for Neon RGB Title and Animations */}
-      <style>{`
-        @keyframes rgbShift {
-          0% {
-            text-shadow: 
-              0 0 10px rgba(255, 50, 80, 0.95),
-              0 0 20px rgba(255, 50, 80, 0.75),
-              0 0 30px rgba(255, 50, 80, 0.55),
-              0 0 40px rgba(255, 50, 80, 0.35),
-              2px 2px 4px rgba(0, 0, 0, 0.9),
-              4px 4px 8px rgba(0, 0, 0, 0.7);
-            color: #fff;
-          }
-          25% {
-            text-shadow: 
-              0 0 10px rgba(255, 110, 60, 0.95),
-              0 0 20px rgba(255, 110, 60, 0.75),
-              0 0 30px rgba(255, 110, 60, 0.55),
-              0 0 40px rgba(255, 110, 60, 0.35),
-              2px 2px 4px rgba(0, 0, 0, 0.9),
-              4px 4px 8px rgba(0, 0, 0, 0.7);
-            color: #fff;
-          }
-          50% {
-            text-shadow: 
-              0 0 10px rgba(220, 38, 127, 0.95),
-              0 0 20px rgba(220, 38, 127, 0.75),
-              0 0 30px rgba(220, 38, 127, 0.55),
-              0 0 40px rgba(220, 38, 127, 0.35),
-              2px 2px 4px rgba(0, 0, 0, 0.9),
-              4px 4px 8px rgba(0, 0, 0, 0.7);
-            color: #fff;
-          }
-          75% {
-            text-shadow: 
-              0 0 10px rgba(255, 75, 100, 0.95),
-              0 0 20px rgba(255, 75, 100, 0.75),
-              0 0 30px rgba(255, 75, 100, 0.55),
-              0 0 40px rgba(255, 75, 100, 0.35),
-              2px 2px 4px rgba(0, 0, 0, 0.9),
-              4px 4px 8px rgba(0, 0, 0, 0.7);
-            color: #fff;
-          }
-          100% {
-            text-shadow: 
-              0 0 10px rgba(255, 50, 80, 0.95),
-              0 0 20px rgba(255, 50, 80, 0.75),
-              0 0 30px rgba(255, 50, 80, 0.55),
-              0 0 40px rgba(255, 50, 80, 0.35),
-              2px 2px 4px rgba(0, 0, 0, 0.9),
-              4px 4px 8px rgba(0, 0, 0, 0.7);
-            color: #fff;
-          }
-        }
-
-        .neon-title {
-          animation: rgbShift 8s ease-in-out infinite;
-          filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
-          letter-spacing: 0.05em;
-        }
-      `}</style>
     </div>
   );
 };

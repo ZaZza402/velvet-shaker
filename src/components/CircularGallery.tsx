@@ -407,7 +407,11 @@ class Media {
         ];
       }
     }
-    this.scale = this.screen.height / 1500;
+    // Reduce image size on mobile screens
+    const isMobile = this.screen.width < 768;
+    const mobileScale = isMobile ? 0.75 : 1.0; // 25% smaller on mobile
+
+    this.scale = (this.screen.height / 1500) * mobileScale;
     this.plane.scale.y =
       (this.viewport.height * (900 * this.scale)) / this.screen.height;
     this.plane.scale.x =
@@ -692,6 +696,7 @@ export default function CircularGallery({
   scrollEase = 0.02,
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (!containerRef.current) return;
     const app = new App(containerRef.current, {
@@ -707,10 +712,46 @@ export default function CircularGallery({
       app.destroy();
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
+
   return (
-    <div
-      className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
-      ref={containerRef}
-    />
+    <div className="relative w-full h-full">
+      {/* Always visible swipe indicator at top */}
+      <div className="absolute top-6 left-1/2 -translate-x-1/2 pointer-events-none z-10">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/20 backdrop-blur-sm border border-pink-500/20">
+          <svg
+            className="w-4 h-4 text-pink-400/60 animate-pulse"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            />
+          </svg>
+          <span className="text-xs text-cyan-300/50 font-light">Swipe</span>
+          <svg
+            className="w-4 h-4 text-cyan-400/60 animate-pulse"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <div
+        className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
+        ref={containerRef}
+      />
+    </div>
   );
 }
