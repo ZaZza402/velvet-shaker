@@ -173,7 +173,7 @@ const UndergroundMenu = () => {
           }`}
         >
           <div
-            className="tracking-widest uppercase text-green-400 font-light mb-4 font-handwriting text-base"
+            className="tracking-widest text-green-400 font-light mb-4 font-handwriting text-base"
             style={{
               lineHeight: "2",
               letterSpacing: "0.1em",

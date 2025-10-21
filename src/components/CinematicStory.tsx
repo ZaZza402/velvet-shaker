@@ -135,7 +135,7 @@ const CinematicStory = () => {
             <div className="space-y-4">
               <motion.div
                 variants={itemVariant}
-                className="tracking-widest uppercase text-pink-400 font-light font-handwriting text-base"
+                className="tracking-widest text-pink-400 font-light font-handwriting text-base"
                 style={{
                   lineHeight: "2",
                   letterSpacing: "0.1em",
