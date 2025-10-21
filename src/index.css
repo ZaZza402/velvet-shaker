@@ -27,22 +27,126 @@ body {
   overflow-x: hidden; /* Safe alternative - prevents horizontal scroll without breaking sticky */
 }
 
-/* Custom Scrollbar - thinner for full canvas experience */
+/* ============================================
+   CUSTOM NEON SCROLLBAR - Underground Bar Theme
+   ============================================ */
+
+/* Webkit Browsers (Chrome, Safari, Edge, Opera) */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 12px;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(20, 0, 30, 0.95) 50%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  border-left: 1px solid rgba(255, 20, 147, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e0b973;
-  border-radius: 3px;
+  background: linear-gradient(
+    180deg,
+    #ff1493 0%,
+    #00ffff 50%,
+    #ff1493 100%
+  );
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.9);
+  box-shadow: 
+    0 0 10px rgba(255, 20, 147, 0.8),
+    0 0 20px rgba(0, 255, 255, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  animation: neonPulse 2s ease-in-out infinite;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4a853;
+  background: linear-gradient(
+    180deg,
+    #ff1493 0%,
+    #00ffff 30%,
+    #00ff00 60%,
+    #00ffff 80%,
+    #ff1493 100%
+  );
+  box-shadow: 
+    0 0 15px rgba(255, 20, 147, 1),
+    0 0 30px rgba(0, 255, 255, 0.8),
+    0 0 40px rgba(0, 255, 0, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.5);
+  animation: neonPulseHover 1s ease-in-out infinite;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    180deg,
+    #00ffff 0%,
+    #ff1493 50%,
+    #00ffff 100%
+  );
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 1),
+    0 0 40px rgba(255, 20, 147, 1),
+    inset 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff1493 rgba(0, 0, 0, 0.9);
+}
+
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #ff1493 rgba(20, 0, 30, 0.95);
+}
+
+/* Neon pulse animation */
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 10px rgba(255, 20, 147, 0.8),
+      0 0 20px rgba(0, 255, 255, 0.6),
+      inset 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 15px rgba(255, 20, 147, 1),
+      0 0 30px rgba(0, 255, 255, 0.8),
+      0 0 40px rgba(0, 255, 0, 0.4),
+      inset 0 0 15px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes neonPulseHover {
+  0%, 100% {
+    box-shadow: 
+      0 0 15px rgba(255, 20, 147, 1),
+      0 0 30px rgba(0, 255, 255, 0.8),
+      0 0 40px rgba(0, 255, 0, 0.6),
+      inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(255, 20, 147, 1),
+      0 0 40px rgba(0, 255, 255, 1),
+      0 0 60px rgba(0, 255, 0, 0.8),
+      inset 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Mobile optimization - subtle neon on touch devices */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border: 1px solid rgba(0, 0, 0, 0.9);
+  }
 }
 
 /* Selection styling */
