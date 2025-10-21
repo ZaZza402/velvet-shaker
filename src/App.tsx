@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import CustomCursor from "./components/CustomCursor";
 import OrbitalMenu from "./components/OrbitalMenu";
 import ClientContactPopup from "./components/ClientContactPopup";
+import DisclaimerBanner from "./components/DisclaimerBanner";
 import "./App.css";
 import "./components/App.css";
 
@@ -22,6 +23,9 @@ function App() {
 
       {/* Mobile-Only Navigation - Conditional Rendering */}
       {isMobile && <OrbitalMenu />}
+
+      {/* Disclaimer Banner */}
+      <DisclaimerBanner />
 
       <CinematicHero />
       <CinematicStory />

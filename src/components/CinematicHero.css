@@ -12,6 +12,40 @@
   min-height: 100svh; /* Support for new viewport units */
 }
 
+/* ============================================
+   NEON TITLE ANIMATION - Underground Theme
+   ============================================ */
+
+.neon-title {
+  background: linear-gradient(
+    90deg,
+    #ff1493 0%,
+    #00ffff 25%,
+    #00ff00 50%,
+    #00ffff 75%,
+    #ff1493 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: neon-title-shift 4s linear infinite;
+  
+  /* Neon glow effect */
+  filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.8))
+          drop-shadow(0 0 40px rgba(0, 255, 255, 0.6))
+          drop-shadow(0 0 60px rgba(0, 255, 0, 0.4));
+}
+
+@keyframes neon-title-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
 /* Mobile Video Cinematic Filters */
 .mobile-hero-video {
   /* Cinematic color grading inspired by the image */

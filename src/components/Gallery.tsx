@@ -93,6 +93,21 @@ const Gallery = () => {
       <div className="gallery-fade gallery-fade-left" />
       <div className="gallery-fade gallery-fade-right" />
 
+      {/* Mobile Swipe Indicator */}
+      {isMobile && !isDragging && (
+        <div className="swipe-indicator">
+          <div className="swipe-icon">
+            <div className="swipe-icon-bg" />
+            <div className="swipe-arrows">
+              <div className="swipe-arrow" />
+              <div className="swipe-arrow" />
+              <div className="swipe-arrow" />
+            </div>
+          </div>
+          <div className="swipe-text">Swipe</div>
+        </div>
+      )}
+
       {/* Auto-scrolling marquee track (desktop) / Swipeable track (mobile) */}
       <div
         ref={trackRef}

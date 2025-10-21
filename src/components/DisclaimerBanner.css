@@ -1,0 +1,185 @@
+/* ============================================
+   DISCLAIMER BANNER - Sticky Neon Theme
+   ============================================ */
+
+.disclaimer-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(20, 0, 30, 0.95) 50%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+  backdrop-filter: blur(10px);
+  border-top: 2px solid rgba(255, 20, 147, 0.5);
+  box-shadow: 
+    0 -2px 20px rgba(255, 20, 147, 0.3),
+    0 -1px 10px rgba(0, 255, 255, 0.2);
+  animation: banner-slide-up 0.5s ease-out;
+}
+
+.disclaimer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.disclaimer-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-family: 'Georgia', serif;
+  line-height: 1.5;
+}
+
+.disclaimer-highlight {
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff1493, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+}
+
+.disclaimer-link {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.disclaimer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00ffff, #ff1493);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+}
+
+.disclaimer-link:hover {
+  color: #ff1493;
+  text-shadow: 
+    0 0 10px rgba(255, 20, 147, 0.8),
+    0 0 20px rgba(0, 255, 255, 0.6);
+}
+
+.disclaimer-link:hover::after {
+  width: 100%;
+}
+
+.disclaimer-close {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 20, 147, 0.1);
+  border: 1px solid rgba(255, 20, 147, 0.5);
+  border-radius: 50%;
+  color: #ff1493;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+}
+
+.disclaimer-close:hover {
+  background: rgba(255, 20, 147, 0.2);
+  border-color: #ff1493;
+  transform: rotate(90deg);
+  box-shadow: 
+    0 0 15px rgba(255, 20, 147, 0.6),
+    0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+.disclaimer-close:active {
+  transform: rotate(90deg) scale(0.9);
+}
+
+/* Animations */
+@keyframes banner-slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .disclaimer-content {
+    padding: 10px 16px;
+    gap: 12px;
+  }
+
+  .disclaimer-text {
+    font-size: 12px;
+  }
+
+  .disclaimer-close {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .disclaimer-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .disclaimer-text {
+    font-size: 11px;
+  }
+
+  .disclaimer-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+}
+
+/* Subtle pulse animation for the border */
+@keyframes border-pulse {
+  0%, 100% {
+    border-top-color: rgba(255, 20, 147, 0.5);
+    box-shadow: 
+      0 -2px 20px rgba(255, 20, 147, 0.3),
+      0 -1px 10px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+    border-top-color: rgba(0, 255, 255, 0.6);
+    box-shadow: 
+      0 -2px 30px rgba(255, 20, 147, 0.4),
+      0 -1px 15px rgba(0, 255, 255, 0.3);
+  }
+}
+
+.disclaimer-banner {
+  animation: banner-slide-up 0.5s ease-out, border-pulse 3s ease-in-out infinite;
+}
