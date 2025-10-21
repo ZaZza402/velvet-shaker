@@ -222,7 +222,7 @@ const UndergroundMenu = () => {
           </AnimatePresence>
 
           <div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10"
             onMouseEnter={() => setShowHint(false)}
             onTouchStart={() => setShowHint(false)}
           >
@@ -274,7 +274,7 @@ const UndergroundMenu = () => {
           </div>
 
           {/* Golden Hour Cocktails Grid */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
             {goldenHourCocktails.map((cocktail, index) => (
               <motion.div
                 key={index}
@@ -282,31 +282,31 @@ const UndergroundMenu = () => {
                 variants={goldenCardVariants}
                 initial="hidden"
                 animate={isGoldenHourInView ? "visible" : "hidden"}
-                className="group relative p-8 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm border border-primary/30 rounded-lg transition-all duration-500 hover:border-primary hover:shadow-glow"
+                className="group relative p-4 sm:p-6 md:p-8 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm border border-primary/30 rounded-lg transition-all duration-500 hover:border-primary hover:shadow-glow"
               >
                 {/* Golden accent corner */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-primary/20 to-transparent rounded-tr-lg" />
+                <div className="absolute top-0 right-0 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-bl from-primary/20 to-transparent rounded-tr-lg" />
 
                 {/* Card Content */}
                 <div className="relative z-10">
                   {/* Name and Price */}
-                  <div className="flex justify-between items-start mb-4">
-                    <h4 className="text-3xl font-serif text-primary group-hover:text-primary-light transition-colors duration-300">
+                  <div className="flex justify-between items-start mb-2 sm:mb-3 md:mb-4">
+                    <h4 className="text-lg sm:text-2xl md:text-3xl font-serif text-primary group-hover:text-primary-light transition-colors duration-300">
                       {cocktail.name}
                     </h4>
-                    <span className="text-2xl font-light text-primary/90">
+                    <span className="text-lg sm:text-xl md:text-2xl font-light text-primary/90">
                       {cocktail.price}
                     </span>
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-300 leading-relaxed mb-4 text-base font-georgia">
+                  <p className="text-gray-300 leading-relaxed mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-base font-georgia">
                     {cocktail.description}
                   </p>
 
                   {/* Pairing */}
-                  <div className="pt-4 border-t border-primary/20">
-                    <p className="text-sm text-primary/70 italic font-georgia">
+                  <div className="pt-2 sm:pt-3 md:pt-4 border-t border-primary/20">
+                    <p className="text-xs sm:text-sm text-primary/70 italic font-georgia">
                       {cocktail.pairing}
                     </p>
                   </div>

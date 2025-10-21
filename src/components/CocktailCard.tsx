@@ -78,7 +78,7 @@ const CocktailCard = ({ cocktail }: CocktailProps) => {
   return (
     <div
       ref={cardRef}
-      className="group relative bg-black/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 cursor-pointer"
+      className="group relative bg-black/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-4 sm:p-6 md:p-8 cursor-pointer"
       style={{
         transformStyle: "preserve-3d",
       }}
@@ -94,31 +94,31 @@ const CocktailCard = ({ cocktail }: CocktailProps) => {
       {/* Card content */}
       <div className="relative z-10">
         {/* Price and Name */}
-        <div className="flex justify-between items-start mb-6">
+        <div className="flex justify-between items-start mb-3 sm:mb-4 md:mb-6">
           <h3
-            className={`text-2xl font-serif text-transparent bg-clip-text bg-gradient-to-r ${cocktail.color} group-hover:scale-105 transition-transform duration-300`}
+            className={`text-base sm:text-xl md:text-2xl font-serif text-transparent bg-clip-text bg-gradient-to-r ${cocktail.color} group-hover:scale-105 transition-transform duration-300`}
           >
             {cocktail.name}
           </h3>
-          <span className="text-2xl font-bold text-white">
+          <span className="text-base sm:text-xl md:text-2xl font-bold text-white">
             {cocktail.price}
           </span>
         </div>
 
         {/* Ingredients */}
-        <p className="text-gray-300 mb-6 leading-relaxed font-georgia">
+        <p className="text-gray-300 mb-3 sm:mb-4 md:mb-6 leading-relaxed text-xs sm:text-sm md:text-base font-georgia">
           {cocktail.ingredients}
         </p>
 
         {/* Story */}
-        <div className="border-t border-gray-700/50 pt-6">
-          <p className="text-gray-400 text-sm italic font-georgia">
+        <div className="border-t border-gray-700/50 pt-3 sm:pt-4 md:pt-6">
+          <p className="text-gray-400 text-xs sm:text-sm italic font-georgia">
             {cocktail.story}
           </p>
         </div>
 
         {/* Interactive element */}
-        <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="mt-3 sm:mt-4 md:mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <div
             className={`w-full h-1 bg-gradient-to-r ${cocktail.color} rounded-full`}
           ></div>
