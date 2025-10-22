@@ -57,21 +57,15 @@ const ClientContactPopup = () => {
         percentage: Math.round(scrollPercentage),
       });
 
-      // Show when user reaches 75% of page (easier to trigger)
-      if (scrollPercentage >= 75) {
-        console.log("✅ Reached 75% - showing popup in 1 second...");
+      // Show when user reaches 95% of page (near the end)
+      if (scrollPercentage >= 95) {
+        console.log("✅ Reached end of page - showing popup in 1 second...");
         clearTimeout(scrollTimeout);
         scrollTimeout = window.setTimeout(() => {
           showPopup();
-        }, 1000); // 1 second delay after reaching 75%
+        }, 1000); // 1 second delay after reaching the end
       }
     };
-
-    // Show after 30 seconds if user hasn't triggered it (reduced from 60)
-    const timeTimeout = window.setTimeout(() => {
-      console.log("⏰ 30 seconds elapsed - showing popup");
-      showPopup();
-    }, 30000); // 30 seconds
 
     // Add scroll listener with passive for better performance
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -86,7 +80,6 @@ const ClientContactPopup = () => {
       console.log("🧹 ClientContactPopup cleanup");
       window.removeEventListener("scroll", handleScroll);
       if (scrollTimeout) clearTimeout(scrollTimeout);
-      clearTimeout(timeTimeout);
     };
   }, []); // Empty dependency array - run once on mount
 
@@ -191,12 +184,13 @@ const ClientContactPopup = () => {
                     className="space-y-2 sm:space-y-3 px-2"
                   >
                     <p className="text-base sm:text-lg text-gray-300 font-georgia leading-relaxed">
-                      Questo è un sito dimostrativo creato da{" "}
+                      Ciao! Sono{" "}
                       <span className="text-pink-400 font-semibold">Alex</span>.
+                      Questo è un esempio di quello che posso creare per te.
                     </p>
                     <p className="text-sm sm:text-base text-gray-400 font-georgia leading-relaxed">
-                      Se ti piace questo design e vuoi qualcosa di simile per il
-                      tuo business, contattami!
+                      Se ti piace questo design e vuoi un sito unico per il tuo
+                      business, parliamone!
                     </p>
                   </motion.div>
 
